@@ -1,5 +1,5 @@
 <template>
-  <div class="flex z-10 bg-white border-b border-gray-200 fixed top-0 inset-x-0 z-100 h-16 items-center shadow-strong">
+  <div class="flex z-20 bg-white border-b border-gray-200 fixed top-0 inset-x-0 z-100 h-16 items-center shadow-strong">
     <div class="flex w-full max-w-screen-xl relative mx-auto px-6">  
       <nuxt-link tag="a" to="/">
         <div class="d-flex align-center">

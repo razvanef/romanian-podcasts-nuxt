@@ -13,6 +13,7 @@
         </div>
       </div>
     </div>
+    <p v-if="filterPodcasts.length === 0" class="m-auto mt-8">No podcasts</p>
   </div>
 </template>
 
@@ -21,12 +22,11 @@ import categoriesList from "../assets/categories.js";
 
 export default {
   name: "PodcastsList",
+  props: ['searchPodcast', 'selectCategories'],
   data: () => ({
     title: "Podcast-uri romanesti",
     loading: false,
     podcasts: [],
-    searchPodcast: "",
-    selectCategories: [],
     categories: categoriesList
   }),
   created() {
@@ -55,7 +55,7 @@ export default {
           ) &&
           !!(this.selectCategories.length > 0
             ? podcast.fields.categories.filter(value =>
-                this.selectCategories.includes(value)
+                this.selectCategories.some(categorie => categorie.value === value)
               ).length > 0
             : true)
         );

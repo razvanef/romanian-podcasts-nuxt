@@ -1,11 +1,12 @@
 <template>
-    <div class="flex justify-end py-4">
-      <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4">
-        <MultiSelect :options="categories" />
+    <div class="flex flex-wrap justify-end py-4">
+      <div class="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mt-4">
+        <MultiSelect :options="categories" @elementSelected="searchCategories = $event; $emit('input', searchCategories)" />
       </div>
-      <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2">
-        <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
-          <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search" aria-label="Search">
+      <div class="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mt-4">
+        <div class="flex-grow items-center border-b border-b-2 border-teal-500 py-1">
+          <input v-model="searchQuery" @input="$emit('filterListByQuery', searchQuery)"
+            class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search" aria-label="Search">
         </div>
       </div>
     </div>
@@ -21,7 +22,9 @@ export default {
       MultiSelect
     },
     data: () => ({
-      categories: categoriesList
+      categories: categoriesList,
+      searchQuery: '',
+      searchCategories: []
     })
 }
 </script>
