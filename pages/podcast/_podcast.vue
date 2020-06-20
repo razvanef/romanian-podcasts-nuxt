@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="min-h-screen mx-auto flex">
         <Header />
-        <div class="content max-w-screen-sm py-16 px-4 sm:px-2">
+        <div class="content max-w-screen-sm mx-auto w-full py-16 px-4 sm:px-2">
             <PodcastDetails :podcastId="$route.params.podcast" />
         </div>
     </div>
