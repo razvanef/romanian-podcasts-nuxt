@@ -38,7 +38,6 @@ export default Vue.extend({
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  text-align: center;
 }
 
 .title {

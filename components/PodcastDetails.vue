@@ -3,7 +3,7 @@
         <div class="p-10 max-w-md mx-auto">
             <img :src="podcast.cover" />
         </div>
-        <div class="text-2xl pb-4 text-black">
+        <div class="text-2xl pb-2 text-black">
             {{podcast.name}}
         </div>
         <div class="border-b border-gray-400 text-sm pb-4">
