@@ -148,8 +148,13 @@ export default {
   name: "ListenButtons",
   props: ["podcast"],
   data: () => ({
-    // domainName: window.location.host
-  })
+    domainName: ''
+  }),
+  created() {
+    if(!process.server) {
+      this.domainName = window.location.host
+    }
+  }
 };
 </script>
 
