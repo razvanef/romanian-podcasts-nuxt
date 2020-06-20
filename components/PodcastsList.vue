@@ -3,15 +3,17 @@
     <div class="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
       v-for="podcast in filterPodcasts"
       :key="podcast.id">
-      <div class="flex-grow rounded overflow-hidden shadow-xl m-4 hover:shadow-round cursor-pointer">
-        <img class="w-full" :src="podcast.fields.cover" alt="Sunset in the mountains">
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{podcast.fields.name}}</div>
-          <p class="text-gray-700 text-base">
-            {{podcast.fields.host}}
-          </p>
+      <nuxt-link :to="'podcast/'+podcast.fields.podcastId">
+        <div class="flex-grow rounded overflow-hidden shadow-xl m-4 hover:shadow-round cursor-pointer">
+          <img class="w-full" :src="podcast.fields.cover" alt="Sunset in the mountains">
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">{{podcast.fields.name}}</div>
+            <p class="text-gray-700 text-base">
+              {{podcast.fields.host}}
+            </p>
+          </div>
         </div>
-      </div>
+      </nuxt-link>
     </div>
     <p v-if="filterPodcasts.length === 0" class="m-auto mt-8">No podcasts</p>
   </div>

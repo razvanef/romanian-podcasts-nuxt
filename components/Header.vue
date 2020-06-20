@@ -20,7 +20,9 @@
         target="_blank"
       >
         <span class="mr-2">Ai o sugestie?</span>
-        <i class="fill-current w-4 h-4 mr-2 far fa-envelope"></i>
+        <div class="text-xl mr-2">
+          <fa class="fill-current" :icon="['fas', 'envelope']" />
+        </div>
       </button>
     </div>
   </div>
