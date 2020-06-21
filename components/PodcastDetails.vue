@@ -1,7 +1,6 @@
 <template>
     <div class="text-gray-700 text-left">
-        <SkeletonPage v-if="loading" />
-        <div v-if="!loading">
+        <div>
             <div class="p-10 max-w-md mx-auto">
                 <img :src="podcast.cover" />
             </div>
@@ -31,42 +30,12 @@
 
 <script>
 import ListenButtons from "~/components/ListenButtons";
-import SkeletonPage from '~/components/SkeletonPage.vue'
 
 export default {
-    props: ['podcastId'],
+    props: ['podcast'],
     components: {
-        ListenButtons,
-        SkeletonPage
-    },
-    created() {
-        this.getPodcast();
-    },
-    data: () => ({
-        podcast: {},
-        loading: false
-    }),
-    methods: {
-        getPodcast() {
-            this.loading = true;
-            if (!this.podcastId) return;
-            this.loading = true;
-
-            fetch(
-                `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?maxRecords=1&view=Grid%20view&filterByFormula=podcastId='${this.podcastId}'`,
-                {
-                headers: {
-                    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`
-                }
-                }
-            )
-                .then(res => res.json())
-                .then(json => {
-                    this.podcast = json.records[0].fields;
-                    this.loading = false;
-                });
-                }
-            }
+        ListenButtons
+    }
 }
 </script>
 

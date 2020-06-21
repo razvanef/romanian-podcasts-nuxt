@@ -13,6 +13,13 @@ import PodcastsList from '~/components/PodcastsList.vue'
 import FilterList from '~/components/FilterList.vue'
 
 export default Vue.extend({
+  head: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: 'Podcasturi Romanesti',
+    meta: [
+        { name: 'description', content: "Ce podcasturi mai asculti? Am adunat o colectie cu cele mai populare podcasturi romanesti sa ai de unde alege." }
+    ]
+  },
   components: {
     PodcastsList,
     FilterList
