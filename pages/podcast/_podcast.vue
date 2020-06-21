@@ -30,7 +30,6 @@ export default {
         SkeletonPage
     },
     created() {
-        console.log(2)
         this.getPodcast();
     },
     data: () => ({
@@ -42,7 +41,7 @@ export default {
             this.loading = true;
             if (!this.$route.params.podcast) return;
             this.loading = true;
-console.log('ttt')
+            
             fetch(
                 `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?maxRecords=1&view=Grid%20view&filterByFormula=podcastId='${this.$route.params.podcast}'`,
                 {
