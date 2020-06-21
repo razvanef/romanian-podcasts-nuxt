@@ -1,5 +1,5 @@
 <template>
-  <div v-if="snackbar" class="fixed right-0 bottom-0 mb-2 mr-2 flex w-5/12 max-w-screen-sm justify-center bg-gray-800 text-white items-center items-end px-4 py-2 rounded" role="alert">
+  <div v-if="snackbar" class="fixed right-0 bottom-0 mb-2 mx-2 flex lg:w-5/12 sm:w-full md:w-2/3 max-w-screen-sm justify-center bg-gray-800 text-white items-center items-end px-4 py-2 rounded" role="alert">
     <span class="text-xs block sm:inline flex-1">{{ text }}</span>
     <button @click="setAccepted()" class="hover:bg-gray-700 focus:outline-none text-pink-700 font-semibold py-1 px-4">
       {{ buttonText }}
