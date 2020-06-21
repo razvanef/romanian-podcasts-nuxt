@@ -15,7 +15,7 @@
 
       <div class="flex-grow"></div>
 
-      <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded items-center inline-flex"
+      <button class="bg-white hover:bg-gray-100 focus:outline-none text-gray-800 font-semibold py-2 px-4 rounded items-center inline-flex"
         href="mailto:razvanef@gmail.com?subject=Podcasturi Romanesti"
         target="_blank"
       >

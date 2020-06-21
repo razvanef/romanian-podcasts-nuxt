@@ -17,6 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
+    "js-cookie": "^2.2.1",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0"
   },

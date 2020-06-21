@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <Header />
     <div class="content w-full pt-16 px-4 sm:px-2">
       <FilterList @filterListByQuery="filterQuery = $event" v-model="categoriesQuery" />
       <PodcastsList :searchPodcast="filterQuery" :selectCategories="categoriesQuery" />
@@ -10,13 +9,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Header from '~/components/Header.vue'
 import PodcastsList from '~/components/PodcastsList.vue'
 import FilterList from '~/components/FilterList.vue'
 
 export default Vue.extend({
   components: {
-    Header,
     PodcastsList,
     FilterList
   },
