@@ -37,7 +37,8 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/dotenv',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    'nuxt-purgecss'
   ],
   googleAnalytics: {
     id: process.env.NUXT_ENV_ANALYTICS_KEY
