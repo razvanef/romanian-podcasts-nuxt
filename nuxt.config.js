@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/google-analytics'
   ],
   googleAnalytics: {
-    id: process.env.ANALYTICS_KEY
+    id: process.env.NUXT_ENV_ANALYTICS_KEY
   },
   /*
    ** Nuxt.js modules

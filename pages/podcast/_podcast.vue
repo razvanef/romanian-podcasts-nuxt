@@ -46,7 +46,7 @@ export default {
                 `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?maxRecords=1&view=Grid%20view&filterByFormula=podcastId='${this.$route.params.podcast}'`,
                 {
                 headers: {
-                    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`
+                    Authorization: `Bearer ${process.env.NUXT_ENV_AIRTABLE_API_KEY}`
                 }
                 }
             )

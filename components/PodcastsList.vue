@@ -82,7 +82,7 @@ export default {
         `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?view=Grid%20view&offset=${offset}${fields}`,
         {
           headers: {
-            Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`
+            Authorization: `Bearer ${process.env.NUXT_ENV_AIRTABLE_API_KEY}`
           }
         }
       )
