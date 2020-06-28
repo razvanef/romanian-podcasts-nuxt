@@ -5,6 +5,17 @@
 ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 */
 module.exports = {
+  purge: {
+    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js'
+    ]
+  },
   theme: {
     boxShadow: {
       default: '0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06)',
