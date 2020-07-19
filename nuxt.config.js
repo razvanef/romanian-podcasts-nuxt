@@ -79,7 +79,7 @@ export default {
   router: {
     trailingSlash: true
   },
-  target: 'static',
+  target: 'server',
   purgeCSS: {
     whitelistPatterns: [/svg.*/],
     purgeCSSInDev: true
