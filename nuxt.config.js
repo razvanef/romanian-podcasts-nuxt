@@ -76,6 +76,9 @@ export default {
      */
     extend(config, ctx) {}
   },
+  router: {
+    trailingSlash: true
+  },
   purgeCSS: {
     whitelistPatterns: [/svg.*/],
     purgeCSSInDev: true
