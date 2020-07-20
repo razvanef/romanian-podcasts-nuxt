@@ -77,9 +77,10 @@ export default {
     extend(config, ctx) {}
   },
   router: {
-    trailingSlash: true
+    // trailingSlash: true
+    mode: 'hash'
   },
-  target: 'server',
+  // target: 'server',
   purgeCSS: {
     whitelistPatterns: [/svg.*/],
     purgeCSSInDev: true
