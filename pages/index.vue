@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content w-full pt-16 px-4 sm:px-2">
       <FilterList @filterListByQuery="filterQuery = $event" v-model="categoriesQuery" />
-      <PodcastsList :searchPodcast="filterQuery" :selectCategories="categoriesQuery" />
+      <PodcastsList :podcasts="podcasts" :searchPodcast="filterQuery" :selectCategories="categoriesQuery" />
     </div>
   </div>
 </template>
@@ -13,6 +13,33 @@ import PodcastsList from '~/components/PodcastsList.vue'
 import FilterList from '~/components/FilterList.vue'
 
 export default Vue.extend({
+  async asyncData() {
+    let loading = true;
+    let podcasts = Array();
+    let offset = '';
+    const fields =
+        "&fields%5B%5D=podcastId&fields%5B%5D=name&fields%5B%5D=host&fields%5B%5D=cover&fields%5B%5D=description&fields%5B%5D=categories";
+    do {
+      await fetch(
+        `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?view=Grid%20view&offset=${offset}${fields}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.NUXT_ENV_AIRTABLE_API_KEY}`
+          }
+        }
+      )
+      .then(res => res.json())
+      .then(json => {
+        loading = false;
+        podcasts = [...podcasts, ...json.records];
+        offset = "";
+        if (json.offset) offset = json.offset;
+      })
+    } while(offset)
+
+    return { podcasts }
+      
+  },
   head: {
     // if no subcomponents specify a metaInfo.title, this title will be used
     title: 'Podcasturi Romanesti',
@@ -26,7 +53,9 @@ export default Vue.extend({
   },
   data: () => ({
     filterQuery: '',
-    categoriesQuery: []
+    categoriesQuery: [],
+    loading: false,
+    podcasts: Array(),
   })
 })
 </script>
