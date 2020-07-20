@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -76,7 +76,6 @@ export default {
      */
     extend(config, ctx) {}
   },
-  target: 'static',
   purgeCSS: {
     whitelistPatterns: [/svg.*/],
     purgeCSSInDev: true
