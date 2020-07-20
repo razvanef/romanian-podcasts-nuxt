@@ -1,5 +1,5 @@
 export default {
-  mode: 'spa',
+  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -76,10 +76,6 @@ export default {
      */
     extend(config, ctx) {}
   },
-  // router: {
-  //   // trailingSlash: true
-  //   // mode: 'hash'
-  // },
   target: 'static',
   purgeCSS: {
     whitelistPatterns: [/svg.*/],
