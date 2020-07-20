@@ -30,20 +30,14 @@ import SkeletonCard from '~/components/SkeletonCard.vue'
 
 export default {
   name: "PodcastsList",
-  props: ['searchPodcast', 'selectCategories'],
+  props: ['searchPodcast', 'selectCategories', 'podcasts'],
   components: {
     SkeletonCard
   },
   data: () => ({
     title: "Podcast-uri romanesti",
-    loading: false,
-    podcasts: [],
     categories: categoriesList
   }),
-  created() {
-    this.listPodcasts();
-    this.loading = true;
-  },
   computed: {
     filterPodcasts() {
       const search = this.searchPodcast
@@ -75,28 +69,6 @@ export default {
     }
   },
   methods: {
-    listPodcasts(offset = "") {
-      const fields =
-        "&fields%5B%5D=podcastId&fields%5B%5D=name&fields%5B%5D=host&fields%5B%5D=cover&fields%5B%5D=description&fields%5B%5D=categories";
-      fetch(
-        `https://api.airtable.com/v0/appat34KlYh94IXEb/Podcasts?view=Grid%20view&offset=${offset}${fields}`,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NUXT_ENV_AIRTABLE_API_KEY}`
-          }
-        }
-      )
-        .then(res => res.json())
-        .then(json => {
-          this.loading = false;
-          this.podcasts = [...this.podcasts, ...json.records];
-          if (json.offset) this.listPodcasts(json.offset);
-        })
-        .catch(err => {
-          
-        });
-    },
-    
     track () {
       this.$ga.page('/')
     }
